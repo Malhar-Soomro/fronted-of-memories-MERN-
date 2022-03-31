@@ -1,11 +1,12 @@
-export default (posts = [], action) => {
+const reducer = (posts = [], action) => {
     switch (action.type) {
+        case "UPDATE":
+            return posts.map((post) => post._id === action.payload._id ? action.payload : post)
         case "FETCH_ALL":
             return action.payload;
         case "CREATE":
+            console.log(posts)
             return [...posts, action.payload];
-        // case "FETCH_ONE":
-        //     return action.payload;
         default:
             return posts;
     }
@@ -15,3 +16,5 @@ export default (posts = [], action) => {
 //     console.log("hello from reducers/posts")
 
 // }
+
+export default reducer;

@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 
 // https://www.keepinspiring.me/wp-content/uploads/2021/05/aa-milne-i-do-nothing-every-day-funny-quote.png
 
-const Post = ({ post }) => {
+const Post = ({ post, setCurrentId }) => {
     const dispatch = useDispatch();
     const classes = useStyles();
     return (
@@ -37,7 +37,7 @@ const Post = ({ post }) => {
                 <Button
                     style={{ color: "White" }}
                     size="small"
-                    onClick={() => { }}
+                    onClick={() => { setCurrentId(post._id) }}
                 >
                     <MoreHorizIcon
                         fontSize="medium"

@@ -25,12 +25,13 @@ export const createPost = (post) => async (dispatch) => {
 
 
 
-// for understanding purpose of redux
-// export const getOnePost = () => async (dispatch) => {
-//     try {
-//         const { data } = await api.fetchOnePost();
-//         dispatch({ type: "FETCH_ONE", payload: data });
-//     } catch (error) {
-//         console.log(error.message)
-//     }
-// }
+export const updatePost = (id, post) => async (dispatch) => {
+    try {
+        const { data } = await api.updatePost(id, post);
+        console.log("update post function in actions")
+        dispatch({ type: "UPDATE", payload: data })
+
+    } catch (error) {
+
+    }
+}
