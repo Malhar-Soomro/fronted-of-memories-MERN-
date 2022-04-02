@@ -4,6 +4,7 @@ import * as api from "../api";
 export const getPosts = () => async (dispatch) => {
     try {
         const { data } = await api.fetchPosts();
+        //what to do
         dispatch({ type: "FETCH_ALL", payload: data })
 
     } catch (error) {
@@ -19,7 +20,7 @@ export const createPost = (post) => async (dispatch) => {
         console.log(typeof (data))
         dispatch({ type: 'CREATE', payload: data });
     } catch (error) {
-        // console.log(error);
+        console.log(error);
     }
 }
 
@@ -28,10 +29,19 @@ export const createPost = (post) => async (dispatch) => {
 export const updatePost = (id, post) => async (dispatch) => {
     try {
         const { data } = await api.updatePost(id, post);
-        console.log("update post function in actions")
         dispatch({ type: "UPDATE", payload: data })
 
     } catch (error) {
+        console.log(error)
+    }
+}
 
+export const deletePost = (id) => async (dispatch) => {
+    try {
+        await api.deletePost(id);
+        dispatch({ type: "DELETE", payload: id })
+
+    } catch (error) {
+        console.log(error)
     }
 }
