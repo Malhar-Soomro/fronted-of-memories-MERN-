@@ -4,7 +4,7 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import moment from "moment";
 import useStyles from "./Styles";
-import { deletePost } from "../../actions/posts";
+import { deletePost, likePost } from "../../actions/posts";
 import { useDispatch } from "react-redux";
 
 // https://www.keepinspiring.me/wp-content/uploads/2021/05/aa-milne-i-do-nothing-every-day-funny-quote.png
@@ -80,7 +80,7 @@ const Post = ({ post, setCurrentId }) => {
                 <Button
                     size="small"
                     color="primary"
-                    onClick={() => { }}
+                    onClick={() => { dispatch(likePost(post._id)) }}
                 >
                     <ThumbUpAltIcon
                         fontSize="small"
