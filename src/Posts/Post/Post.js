@@ -54,7 +54,7 @@ const Post = ({ post, setCurrentId }) => {
                     color="textSecondary"
                     component="h2"
                 >
-                    {post.tags.map((tag) => `#${tag}`)}
+                    {post.tags.map((tag) => `#${tag} `)}
                 </Typography>
             </div>
             <Typography
@@ -85,7 +85,8 @@ const Post = ({ post, setCurrentId }) => {
                     <ThumbUpAltIcon
                         fontSize="small"
                     />
-                    Like {post.likeCount}
+                    &nbsp;
+                    Like &nbsp; {post.likeCount}
                 </Button>
                 <Button
                     size="small"
