@@ -1,7 +1,7 @@
 import Post from "./Post/Post";
 import { Grid, CircularProgress } from "@material-ui/core";
 import { useSelector } from "react-redux";
-import useStyle from "./Styles";
+import useStyle from "./styles";
 
 const Posts = ({ setCurrentId, setDeleteId, deleteId }) => {
     const classes = useStyle();

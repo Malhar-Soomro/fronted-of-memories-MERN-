@@ -3,8 +3,8 @@ import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
 import DeleteIcon from "@material-ui/icons/Delete";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import moment from "moment";
-import useStyles from "./Styles";
-import { deletePost, likePost } from "../../actions/posts";
+import useStyles from "./styles";
+import { deletePost, likePost } from "../../../actions/posts";
 import { useDispatch } from "react-redux";
 
 // https://www.keepinspiring.me/wp-content/uploads/2021/05/aa-milne-i-do-nothing-every-day-funny-quote.png
