@@ -8,18 +8,35 @@ import { AUTH } from '../../constants/actionTypes';
 import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import Icon from "./Icon"
+import { signup, signin } from "../../actions/auth";
+
 
 const Auth = () => {
+
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const [formData, setFormData] = useState({ firstName: "", lastName: "", email: "", password: "", confirmPassword: "" });
     const [isSignUp, setIsSignUp] = useState(true);
+    const [showPassword, setShowPassword] = useState(false);
     const classes = useStyles();
-    const handleChange = () => {
 
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(formData)
+
+        if (isSignUp) {
+            dispatch(signup(formData, navigate));
+        }
+        else {
+            dispatch(signin(formData, navigate));
+        }
     }
 
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    }
 
-    const [showPassword, setShowPassword] = useState(false);
     const handleShowPassword = () => setShowPassword(!showPassword);
 
     const switchMode = () => {
@@ -46,9 +63,7 @@ const Auth = () => {
         console.log("Google Sign In was unsuccessful. Try again later")
     }
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-    }
+
     return (
         <Container component="main" maxWidth="xs">
             <Paper
