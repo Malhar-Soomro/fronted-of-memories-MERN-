@@ -49,7 +49,6 @@ const Home = () => {
 
     return (
         <>
-
             <Grow in>
                 <Container maxWidth="xl">
                     <Grid className={classes.mainContainer} container justifyContent="space-between" a lignItems="stretch" spacing={3} classes={classes.gridContainer} >
@@ -92,9 +91,11 @@ const Home = () => {
 
                             <Form currentId={currentId} setCurrentId={setCurrentId} />
                             <br />
-                            <Paper elevation={8}>
-                                <Pagination page={page} />
-                            </Paper>
+                            {(!searchQuery && !tags.length) && (
+                                <Paper elevation={8} className={classes.pagination}>
+                                    <Pagination page={page} />
+                                </Paper>
+                            )}
                         </Grid>
                     </Grid>
                 </Container>

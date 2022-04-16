@@ -5,12 +5,14 @@ import useStyle from "./styles";
 
 const Posts = ({ setCurrentId, setDeleteId, deleteId }) => {
     const classes = useStyle();
-    const { posts } = useSelector((state) => {
+    const { posts, isLoading } = useSelector((state) => {
         return state.posts;
     })
 
+    if (!posts.length && !isLoading) return "no posts"
+
     return (
-        !posts?.length ? <CircularProgress /> : (
+        isLoading ? <CircularProgress /> : (
             <Grid
                 className={classes.mainContainer}
                 container
