@@ -5,12 +5,12 @@ import useStyle from "./styles";
 
 const Posts = ({ setCurrentId, setDeleteId, deleteId }) => {
     const classes = useStyle();
-    const posts = useSelector((state) => {
+    const { posts } = useSelector((state) => {
         return state.posts;
     })
 
     return (
-        !posts.length ? <CircularProgress /> : (
+        !posts?.length ? <CircularProgress /> : (
             <Grid
                 className={classes.mainContainer}
                 container
@@ -21,8 +21,9 @@ const Posts = ({ setCurrentId, setDeleteId, deleteId }) => {
                     <Grid key={post._id}
                         item
                         xs={12}
-                        sm={6}
+                        sm={12}
                         md={6}
+                        lg={3}
                     >
                         <Post post={post} setCurrentId={setCurrentId} setDeleteId={setDeleteId} deleteId={deleteId} />
                     </Grid >

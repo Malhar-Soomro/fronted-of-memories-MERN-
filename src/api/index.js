@@ -1,7 +1,8 @@
 import axios from "axios";
 
-// const API = axios.create({ baseURL: "http://localhost:5000" });
-const API = axios.create({ baseURL: "https://backend-of-memories.herokuapp.com" });
+const API = axios.create({ baseURL: "http://localhost:5000" });
+
+// const API = axios.create({ baseURL: "https://backend-of-memories.herokuapp.com" });
 
 //for the middleware, which was setup on backend
 API.interceptors.request.use((req) => {
@@ -15,7 +16,9 @@ API.interceptors.request.use((req) => {
 // const url = "https://backend-of-memories.herokuapp.com/posts";
 
 
-export const fetchPosts = () => API.get("/posts");
+export const fetchPosts = (page) => API.get(`/posts?page=${page}`);
+
+export const fetchPostsBySearch = (searchQuery) => API.get(`/posts/search?searchQuery=${searchQuery.search || "none"}&tags=${searchQuery.tags || "none"}`);
 
 export const createPost = (newPost) => API.post("/posts", newPost);
 

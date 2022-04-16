@@ -15,6 +15,22 @@ const Post = ({ post, setCurrentId }) => {
     const dispatch = useDispatch();
     const user = JSON.parse(localStorage.getItem('profile'));
 
+    // const likes = () => {
+    //     if (post.likes.length > 0) {
+    //         return post.likes.find((like) => like === (user?.result?.googleId || user?.result?._id))
+    //             ? (
+    //                 console.log("ThumbUpAltIcon", post.title)
+    //             ) : (
+    //                 console.log("ThumbUpAltOutlined", post.title)
+    //             );
+    //     }
+
+    //     console.log("ThumbUpAlt final return")
+    // };
+
+    // likes()
+
+
 
     const Likes = () => {
         if (post.likes.length > 0) {
@@ -31,7 +47,7 @@ const Post = ({ post, setCurrentId }) => {
 
 
     return (
-        <Card className={classes.card}>
+        <Card className={classes.card} elevation={6} raised>
             <CardMedia
                 className={classes.media}
                 image={post.selectedFile || "https://www.keepinspiring.me/wp-content/uploads/2021/05/aa-milne-i-do-nothing-every-day-funny-quote.png"}
@@ -100,6 +116,7 @@ const Post = ({ post, setCurrentId }) => {
                 <Button
                     size="small"
                     color="primary"
+                    disabled={!user?.result}
                     onClick={() => { dispatch(likePost(post._id)) }}
                 >
                     <Likes />
