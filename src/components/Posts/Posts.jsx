@@ -9,7 +9,7 @@ const Posts = ({ setCurrentId, setDeleteId, deleteId }) => {
         return state.posts;
     })
 
-    if (!posts.length && !isLoading) return "no posts"
+    if (!posts && !isLoading) return "no posts"
 
     return (
         isLoading ? <CircularProgress /> : (
