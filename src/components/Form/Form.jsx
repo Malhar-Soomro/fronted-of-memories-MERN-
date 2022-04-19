@@ -4,7 +4,7 @@ import FileBase from "react-file-base64";
 import { useDispatch, useSelector } from "react-redux";
 import { createPost, updatePost } from "../../actions/posts";
 import { useNavigate } from "react-router-dom";
-import useStyles from "./styles"
+import useStyles from "./Styles"
 
 
 
