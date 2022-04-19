@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import useStyle from "./styles";
 import { TextField, Button, Typography, Paper } from "@material-ui/core";
 import FileBase from "react-file-base64";
 import { useDispatch, useSelector } from "react-redux";
 import { createPost, updatePost } from "../../actions/posts";
 import { useNavigate } from "react-router-dom";
+import useStyles from "./styles"
 
 
 const Form = ({ currentId, setCurrentId }) => {
@@ -14,7 +14,7 @@ const Form = ({ currentId, setCurrentId }) => {
     const post = useSelector((state) => currentId ? state.posts.posts.find((p) => p._id === currentId) : null);
     const user = JSON.parse(localStorage.getItem("profile"));
 
-    const classes = useStyle();
+    const classes = useStyles();
     const dispatch = useDispatch();
     const [postData, setPostData] = useState({
         title: "", message: "",
