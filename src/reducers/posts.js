@@ -28,7 +28,6 @@ const reducer = (state = { isLoading: true, posts: [] }, action) => {
             return { ...state, post: action.payload }
 
         case CREATE:
-            console.log(state)
             return [...state.posts, action.payload];
         default:
             return state;

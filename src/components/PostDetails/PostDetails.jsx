@@ -13,21 +13,29 @@ const PostDetails = () => {
     const { id } = useParams();
     const navigate = useNavigate();
     const classes = useStyles();
+    console.log("post-->", post)
 
     useEffect(() => {
         dispatch(getPost(id))
-    }, [id, dispatch])
+    }, [id])
 
     useEffect(() => {
-        if (post)
+        if (post?.tags)
             dispatch(getPostsBySearch({ title: "none", tags: post?.tags.join(",") }));
-    }, [dispatch, post]);
+    }, [post]);
 
     const openPost = (postId) => {
         navigate(`/posts/${postId}`);
     }
 
-    const recommendedPosts = posts && posts.filter(({ _id }) => _id !== post._id)
+
+
+    // console.log("posts-->", posts);
+    // console.log("post-->", post)
+    // posts.filter(({ _id }) => console.log(_id))
+
+    const recommendedPosts = (posts && post) && posts.filter(({ _id }) => _id !== post._id);
+
     // if (recommendedPosts) console.log(recommendedPosts)
 
     if (!post) return null;

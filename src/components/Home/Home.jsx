@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Container, Grow, Grid, Paper, AppBar, TextField, Button } from '@material-ui/core';
 import useStyle from "./styles.js";
 import Pagination from "../Pagination/Pagination";
 import { useNavigate, useLocation } from "react-router-dom";
 import ChipInput from "material-ui-chip-input"
 import { useDispatch } from "react-redux";
-import { getPosts, getPostsBySearch } from "../../actions/posts";
+import { getPostsBySearch } from "../../actions/posts";
 import Posts from "../Posts/Posts";
 import Form from "../Form/Form";
 
@@ -32,9 +32,8 @@ const Home = () => {
         }
     }
     const searchPost = () => {
-        console.log(tags)
         if (search.trim() || tags) {
-            console.log(tags.join(","))
+            // console.log(tags.join(","))
             dispatch(getPostsBySearch({ search, tags: tags.join(",") }))
             navigate(`/posts/search?searchQuery=${search || "none"}&tags=${tags.join(",")}`)
         }
@@ -51,7 +50,12 @@ const Home = () => {
         <>
             <Grow in>
                 <Container maxWidth="xl">
-                    <Grid className={classes.mainContainer} container justifyContent="space-between" a lignItems="stretch" spacing={3} classes={classes.gridContainer} >
+                    <Grid
+                        className={classes.gridContainer}
+                        container
+                        // justifyContent="space-between"
+                        // alignItems="stretch"
+                        spacing={3}>
                         <Grid item xs={12} sm={6} md={9}>
                             <Posts setCurrentId={setCurrentId} />
                         </Grid>
@@ -76,6 +80,7 @@ const Home = () => {
                                     value={tags}
                                     onAdd={handleAdd}
                                     onDelete={handleDelete}
+                                    fullWidth
                                     label="Search Tags"
                                     variant="outlined"
                                 />
@@ -84,13 +89,13 @@ const Home = () => {
                                     className={classes.searchButton}
                                     color="primary"
                                     variant="contained"
+                                    fullWidth
                                 >
                                     Search
                                 </Button>
                             </AppBar>
 
                             <Form currentId={currentId} setCurrentId={setCurrentId} />
-                            <br />
                             {(!searchQuery && !tags.length) && (
                                 <Paper elevation={8} className={classes.pagination}>
                                     <Pagination page={page} />

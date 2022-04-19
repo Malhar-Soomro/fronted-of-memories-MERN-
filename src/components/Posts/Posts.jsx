@@ -14,10 +14,10 @@ const Posts = ({ setCurrentId, setDeleteId, deleteId }) => {
     return (
         isLoading ? <CircularProgress /> : (
             <Grid
-                className={classes.mainContainer}
+                // className={classes.mainContainer}
                 container
-                alignItems="stretch"
-                spacing={3}
+                // alignItems="stretch"
+                spacing={2}
             >
                 {posts.map((post) => (
                     <Grid key={post._id}
@@ -25,7 +25,8 @@ const Posts = ({ setCurrentId, setDeleteId, deleteId }) => {
                         xs={12}
                         sm={12}
                         md={6}
-                        lg={3}
+                        lg={4}
+                        xl={3}
                     >
                         <Post post={post} setCurrentId={setCurrentId} setDeleteId={setDeleteId} deleteId={deleteId} />
                     </Grid >

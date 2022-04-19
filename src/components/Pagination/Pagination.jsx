@@ -9,7 +9,6 @@ const Paginate = ({ page }) => {
     const classes = useStyles();
     const dispatch = useDispatch();
     const { numberOfPages } = useSelector((state) => {
-        console.log(state)
         return state.posts
     }
     );

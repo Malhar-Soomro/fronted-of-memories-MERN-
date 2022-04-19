@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import useStyle from "./Styles";
+import useStyle from "./styles";
 import { TextField, Button, Typography, Paper } from "@material-ui/core";
 import FileBase from "react-file-base64";
 import { useDispatch, useSelector } from "react-redux";
@@ -60,12 +60,15 @@ const Form = ({ currentId, setCurrentId }) => {
     }
 
     return (
-        <Paper className={classes.paper} elevation={6} >
+        <Paper className={classes.paper} elevation={6}>
             <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleOnSubmit}>
                 <Typography
                     variant="h6"
-                >{currentId ? "Editing" : "Creating"} a Memory</Typography>
+                >
+                    {currentId ? "Editing" : "Creating"} a Memory
+                </Typography>
                 <TextField
+                    className={classes.textField}
                     name="title"
                     variant="outlined"
                     label="Title"
@@ -115,7 +118,7 @@ const Form = ({ currentId, setCurrentId }) => {
                     </Button>
                 </div>
             </form>
-        </Paper>
+        </Paper >
     );
 }
 

@@ -4,17 +4,17 @@ export default makeStyles((theme) => ({
     appBarSearch: {
         borderRadius: 4,
         marginBottom: '1rem',
-        display: 'flex',
-        padding: '16px',
+        display: 'inline-block',
+        padding: '12px',
     },
     pagination: {
         borderRadius: 4,
         marginTop: '1rem',
-        padding: '16px',
+        padding: '8px',
     },
     gridContainer: {
         [theme.breakpoints.down('xs')]: {
             flexDirection: 'column-reverse',
         },
-    },
+    }
 }));

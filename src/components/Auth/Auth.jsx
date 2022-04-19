@@ -23,7 +23,6 @@ const Auth = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(formData)
 
         if (isSignUp) {
             dispatch(signup(formData, navigate));
@@ -49,7 +48,7 @@ const Auth = () => {
     const googleSuccess = async (res) => {
         const result = res?.profileObj;
         const token = res?.tokenId;
-        console.log(res)
+        // console.log(res)
         try {
             dispatch({ type: AUTH, data: { result, token } })
             navigate("/");

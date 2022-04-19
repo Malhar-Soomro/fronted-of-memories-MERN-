@@ -53,45 +53,46 @@ const Post = ({ post, setCurrentId }) => {
 
     return (
         <Card className={classes.card} elevation={6}>
+
+            <CardMedia
+                className={classes.media}
+                image={post.selectedFile || "https://www.keepinspiring.me/wp-content/uploads/2021/05/aa-milne-i-do-nothing-every-day-funny-quote.png"}
+                title={post.title}
+            />
+            <div className={classes.overlay}>
+                <Typography
+                    variant="h6"
+                >
+                    {post.name}
+
+                </Typography>
+                <Typography
+                    variant="body2"
+                >
+                    {moment(post.createdAt).fromNow()}
+                </Typography>
+            </div>
+
+            {(user?.result?.googleId === post?.creator || user?.result._id === post?.creator) && (
+                <div
+                    className={classes.overlay2}
+                >
+                    <Button
+                        style={{ color: "White" }}
+                        size="small"
+                        onClick={() => { setCurrentId(post._id) }}
+                    >
+                        <MoreHorizIcon
+                            fontSize="medium"
+                        />
+                    </Button>
+                </div>
+            )}
             <ButtonBase
-                component="span"
+                // component="span"
                 className={classes.cardAction}
                 onClick={openPost}
             >
-                <CardMedia
-                    className={classes.media}
-                    image={post.selectedFile || "https://www.keepinspiring.me/wp-content/uploads/2021/05/aa-milne-i-do-nothing-every-day-funny-quote.png"}
-                    title={post.title}
-                />
-                <div className={classes.overlay}>
-                    <Typography
-                        variant="h6"
-                    >
-                        {post.name}
-
-                    </Typography>
-                    <Typography
-                        variant="body2"
-                    >
-                        {moment(post.createdAt).fromNow()}
-                    </Typography>
-                </div>
-
-                {(user?.result?.googleId === post?.creator || user?.result._id === post?.creator) && (
-                    <div
-                        className={classes.overlay2}
-                    >
-                        <Button
-                            style={{ color: "White" }}
-                            size="small"
-                            onClick={() => { setCurrentId(post._id) }}
-                        >
-                            <MoreHorizIcon
-                                fontSize="medium"
-                            />
-                        </Button>
-                    </div>
-                )}
                 <div
                     className={classes.details}
                 >
