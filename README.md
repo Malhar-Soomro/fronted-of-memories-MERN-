@@ -2,7 +2,7 @@
 
 ### _Memories Web Application, where you can add, delete, update and like memories, and View each other's memories._
 
-### Link : https://your-memories-mern-app.netlify.app
+### Link : https://memories-we-project.netlify.app/
 
 ## Desktop Interface
 
